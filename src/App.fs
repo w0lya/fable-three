@@ -1,13 +1,11 @@
 namespace App
 module App =
 
-open System
+
 open System.Collections.Generic
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.Import
 open Fable.Import.Browser
-open Fable.Import.JS
 open ThreeJs.ThreeJsTypes
 
 

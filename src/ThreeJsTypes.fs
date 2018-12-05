@@ -2,11 +2,8 @@ namespace ThreeJs
 
 module ThreeJsTypes =
 
-    open System
-    open System.Collections.Generic
+    
     open Fable.Core
-    open Fable.Import.JS
-    open Fable.Core.JsInterop
     open Fable.Import.Browser   
        
         type [<AllowNullLiteral>] Matrix4 =
@@ -180,8 +177,8 @@ module ThreeJsTypes =
 
         type [<AllowNullLiteral>] Mesh =
            inherit Object3D
-           abstract geometry: obj with get, set //U2<Geometry, BufferGeometry>
-           abstract material: obj with get, set //U2<Material, ResizeArray<Material>>
+           abstract geometry: obj with get, set 
+           abstract material: obj with get, set 
          and [<AllowNullLiteral>] MeshType =
                 [<Emit("new THREE.$0($1...)")>] abstract Create: ?p1 :obj * ?p2:obj -> Mesh
 
@@ -217,12 +214,5 @@ module ThreeJsTypes =
             [<Global>] static member MeshPhongMaterial with get(): MeshPhongMaterialType = jsNative and set(v: MeshPhongMaterialType): unit = jsNative
             [<Global>] static member CylinderBufferGeometry with get(): CylinderBufferGeometryType = jsNative and set(v: CylinderBufferGeometryType): unit = jsNative
 
-
-
-        [<Emit("requestAnimationFrame($0)")>]
-        let requestAnimationFrame (callback) : unit = jsNative
-
-        [<Emit("animate")>]
-        let Animate() : unit = jsNative
     
     
