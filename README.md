@@ -1,4 +1,4 @@
-# Fable 2 Minimal App
+# Three.js sample project based on Fable 2 Minimal App
 
 This is a simple Fable 2 app including an [Elmish](https://elmish.github.io/) counter with as little configuration as possible. If you want to see a more complex app including commonly used F# tools like Paket or Fake, check [the Fulma demo](https://github.com/MangelMaxime/fulma-demo).
 
