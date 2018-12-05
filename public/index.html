@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+  <title>three.js webgl - arraycamera</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="shortcut icon" href="fable.ico" />
+  <style>
+    body {
+      margin: 0px;
+      background-color: #000000;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+    <!-- <div id="elmish-app" class="elmish-app">   
+
+
+    </div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.js"></script> <!---cdn-->
+     <script src="bundle.js"></script>   
+    
+<!-- <script>
+ 
+var camera, scene, renderer, mesh;
+
+function onWindowResize(e) {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  return null;
+}
+function init() {
+
+   camera = new THREE.ArrayCamera();
+   scene = new THREE.Scene();
+   renderer = new THREE.WebGLRenderer();
+   //mesh = new THREE.Mesh();
+
+  const amount = 7;
+  const size = 1 / amount;
+  const aspectRatio = window.innerWidth / window.innerHeight;
+  const cameras = [];
+
+  for (let y = 1; y <= ~~amount; y++) {
+    for (let x = 1; x <= ~~amount; x++) {
+      // var subcamera = new THREE.PerspectiveCamera();
+      // subcamera.fov = 40;
+      // subcamera.aspect = aspectRatio;
+      // subcamera.near = 0.1;
+      // subcamera.far = 10;
+      const subcamera = new THREE.PerspectiveCamera( 40, aspectRatio, 0.1, 10 );
+      // var boundsVector = new THREE.Vector4();
+      // boundsVector.x = x / amount;
+      // boundsVector.y = y / amount;
+      // boundsVector.x = size;
+      // boundsVector.w = size;
+      // subcamera.bounds = boundsVector;
+      subcamera.bounds = new THREE.Vector4( x / amount, y / amount, size, size );
+
+
+      subcamera.position.x = x / amount - 0.5;
+      subcamera.position.y = 0.5 - y / amount;
+      subcamera.position.z = 1.5;
+      subcamera.position.multiplyScalar(2);
+      subcamera.lookAt( 0, 0, 0 );
+      // const lookAVector = new THREE.Vector3();
+      // lookAVector.x = 0;
+      // lookAVector.y = 0;
+      // lookAVector.z = 0;
+      // subcamera.lookAt(lookAVector);
+      subcamera.updateMatrixWorld();
+      cameras.push(subcamera);
+     
+    }
+  }
+
+  camera.cameras = cameras;
+  camera.position.z = 3;
+  
+  scene.add( new THREE.AmbientLight( 0x222266 ));
+  // const ambientLight = new THREE.AmbientLight();
+  // const lightColor = new THREE.Color();
+  // lightColor.r = 0.133;
+  // lightColor.g = 0.133;
+  // lightColor.b = 0.4;
+  // ambientLight.color = lightColor;
+  // scene.add(ambientLight);
+  const dirLight = new THREE.DirectionalLight();
+  dirLight.position.set(0.5, 0.5, 1);
+  dirLight.castShadow = true;
+  dirLight.shadow.camera.zoom = 4;
+  scene.add(dirLight);
+  
+
+  const geometry = new THREE.PlaneBufferGeometry( 100, 100 );
+  const material = new THREE.MeshPhongMaterial( { color: 0x000066 } );
+  const background = new THREE.Mesh( geometry, material );
+  // const geometry = new THREE.PlaneBufferGeometry();
+  // geometry.parameters.width = 100;
+  // geometry.parameters.height = 100;
+  
+  // const material = new THREE.MeshPhongMaterial();
+  // const pbColor = new THREE.Color();
+  // pbColor.r = 0;
+  // pbColor.g = 0;
+  // pbColor.b = 0.4;
+  // material.color = pbColor;
+  // const background = new THREE.Mesh();
+  // background.geometry = geometry;
+  // background.material = material;
+  background.receiveShadow = true;
+  background.position.set(0, 0, -1);
+  scene.add(background);
+  
+  const cbGeometry = new THREE.CylinderBufferGeometry( 0.5, 0.5, 1, 32 );
+  const cbMaterial = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
+  mesh = new THREE.Mesh( cbGeometry, cbMaterial );
+
+  // const cbGeometry = new THREE.CylinderBufferGeometry();
+  // cbGeometry.parameters.radiusTop = 0.5;
+  // cbGeometry.parameters.radiusBottom = 0.5;
+  // cbGeometry.parameters.height = 1;
+  // cbGeometry.parameters.radialSegments = 32;
+  // const cbMaterial = new THREE.MeshPhongMaterial();
+  // const cbColor = new THREE.Color();
+  // cbColor.r = 1;
+  // cbColor.g = 0;
+  // cbColor.b = 0;
+  // cbMaterial.color = cbColor;
+  // mesh.geometry = cbGeometry;
+  // mesh.material = cbMaterial;
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+  scene.add(mesh);
+
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
+  document.body.appendChild(renderer.domElement);
+  //renderer.render(scene, camera);
+  window.addEventListener("resize", onWindowResize, false);
+}
+function animate() {
+  mesh.rotation.x = mesh.rotation.x + 0.005;
+  mesh.rotation.z = mesh.rotation.z + 0.01;
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+}
+init();
+animate();
+
+</script>  -->
+
+      
+           <!-- <script>
+            var camera, scene, renderer;
+            var mesh;
+            init();
+            animate();
+            function init() {
+              var AMOUNT = 7;
+              var SIZE = 1 / AMOUNT;
+              var ASPECT_RATIO = window.innerWidth / window.innerHeight;
+              var cameras = [];
+              for ( var y = 0; y < AMOUNT; y ++ ) {
+                for ( var x = 0; x < AMOUNT; x ++ ) {
+                  var subcamera = new THREE.PerspectiveCamera( 40, ASPECT_RATIO, 0.1, 10 );
+                  subcamera.bounds = new THREE.Vector4( x / AMOUNT, y / AMOUNT, SIZE, SIZE );
+                  subcamera.position.x = ( x / AMOUNT ) - 0.5;
+                  subcamera.position.y = 0.5 - ( y / AMOUNT );
+                  subcamera.position.z = 1.5;
+                  subcamera.position.multiplyScalar( 2 );
+                  subcamera.lookAt( 0, 0, 0 );
+                  subcamera.updateMatrixWorld();
+                  cameras.push( subcamera );
+                }
+              }
+              camera = new THREE.ArrayCamera( cameras );
+              camera.position.z = 3;
+              
+              scene = new THREE.Scene();
+              scene.add( new THREE.AmbientLight( 0x222266 ) );
+              
+              var light = new THREE.DirectionalLight();
+              light.position.set( 0.5, 0.5, 1 );
+              light.castShadow = true;
+              light.shadow.camera.zoom = 4; // tighter shadow map
+              scene.add( light );
+              
+              var geometry = new THREE.PlaneBufferGeometry( 100, 100 );
+              var material = new THREE.MeshPhongMaterial( { color: "0x000066" } );
+              var background = new THREE.Mesh( geometry, material );
+              background.receiveShadow = true;
+              background.position.set( 0, 0, - 1 );
+              scene.add( background );
+              
+              var geometry = new THREE.CylinderBufferGeometry( 0.5, 0.5, 1, 32 );
+              var material = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
+              mesh = new THREE.Mesh( geometry, material );
+              mesh.castShadow = true;
+              mesh.receiveShadow = true;
+              scene.add( mesh );
+              
+              renderer = new THREE.WebGLRenderer();
+              renderer.setPixelRatio( window.devicePixelRatio );
+              renderer.setSize( window.innerWidth, window.innerHeight );
+              renderer.shadowMap.enabled = true;
+              document.body.appendChild( renderer.domElement );
+              //
+              window.addEventListener( 'resize', onWindowResize, false );
+            }
+            function onWindowResize() {
+              camera.aspect = window.innerWidth / window.innerHeight;
+              camera.updateProjectionMatrix();
+              renderer.setSize( window.innerWidth, window.innerHeight);
+            }
+            function animate() {
+              mesh.rotation.x += 0.005;
+              mesh.rotation.z += 0.01;
+              renderer.render( scene, camera );
+              requestAnimationFrame( animate );
+            }
+          </script>  -->
+</body>
+</html>
