@@ -1,8 +1,0 @@
-/home/w0lya/src/fable-three/src/bin/Debug/netstandard2.0/App.deps.json
-/home/w0lya/src/fable-three/src/bin/Debug/netstandard2.0/App.dll
-/home/w0lya/src/fable-three/src/bin/Debug/netstandard2.0/App.pdb
-/home/w0lya/src/fable-three/src/obj/Debug/netstandard2.0/App.fsprojAssemblyReference.cache
-/home/w0lya/src/fable-three/src/obj/Debug/netstandard2.0/App.AssemblyInfoInputs.cache
-/home/w0lya/src/fable-three/src/obj/Debug/netstandard2.0/App.AssemblyInfo.fs
-/home/w0lya/src/fable-three/src/obj/Debug/netstandard2.0/App.dll
-/home/w0lya/src/fable-three/src/obj/Debug/netstandard2.0/App.pdb
