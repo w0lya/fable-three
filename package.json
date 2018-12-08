@@ -2,7 +2,8 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "fable-loader": "^2.0.0",
+    "fable-compiler": "^2.1.6",
+    "fable-loader": "^2.1.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "three": "^0.99.0",
